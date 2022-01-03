@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             ['source'=> 'drugi source', 'title'=>'drugi title', 'creator'=> 'drugi autor', 'content'=> 'drugi content', 'published'=> 'drugi datum', 'summary'=> 'drugi opis'],
             ['source'=> 'treci source', 'title'=>'treci title', 'creator'=> 'treci autor', 'content'=> 'treci content', 'published'=> 'treci datum', 'summary'=> 'treci opis']
         ];
+        
 
         DB::table('articles')->insert($articles);
 
