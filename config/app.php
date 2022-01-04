@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        //Roumen\Feed\FeedServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -206,6 +207,8 @@ return [
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
+        //roumen feed, added later
+        //'Feed' => Roumen\Feed\Feed::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Http' => Illuminate\Support\Facades\Http::class,

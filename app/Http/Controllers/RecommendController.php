@@ -18,6 +18,16 @@ class RecommendController extends Controller
         return view ('recommends.index', compact('recommends'));
     }
 
+    public function feed()
+    {
+        $posts = Post::where('status', 'published')->
+        orderBy('created_at', 'desc')->
+        limit(50)->get();
+        return response()->view('rss.feed', compact('posts'))->header('Content-Type', 'application/xml');
+
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

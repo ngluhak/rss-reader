@@ -29,6 +29,9 @@ Route::get('/source', 'App\\Http\\Controllers\\SourceController@index')
 Route::get('/recommend', 'App\\Http\\Controllers\\RecommendController@index')
 ->name('recommends.index');
 
+Route::get('/gallery', 'App\\Http\\Controllers\\GalleryController@index')
+->name('gallery.index');
+
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
@@ -36,5 +39,6 @@ Route::get('registration', [CustomAuthController::class, 'registration'])->name(
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
-
+//rss feed
+Route::get('feed', 'ArticleController@feed');
 
