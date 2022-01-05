@@ -40,13 +40,13 @@
                       <a class="nav-link text-dark" aria-current="page" href="{{ route('follows.index') }}">Follows</a>
                   </li>   
                   <li class="nav-item">
-                    <a class="nav-link text-dark" aria-current="page" href="{{ route('follows.index') }}">Contact</a>
+                    <a class="nav-link text-dark" aria-current="page" href="{{ route('contact') }}">Contact</a>
                   </li>  
                   <li class="nav-item">
-                    <a class="nav-link text-dark" aria-current="page" href="{{ route('follows.index') }}">About</a>
+                    <a class="nav-link text-dark" aria-current="page" href="{{ route('about') }}">About</a>
                   </li> 
                   <li class="nav-item">
-                    <a class="nav-link text-dark" aria-current="page" href="{{ route('gallery.index') }}">Gallery</a>
+                    <a class="nav-link text-dark" aria-current="page" href="{{ route('gallery') }}">Gallery</a>
                   </li>            
                 </ul>
                 

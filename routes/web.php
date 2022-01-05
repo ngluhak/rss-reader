@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +18,7 @@ use App\Http\Controllers\CustomAuthController;
 |
 */
 
-Route::get('/', [HomeController::class, 'dashboard']
+Route::get('/home', [HomeController::class, 'dashboard']
 )-> name('dashboard');
 
 Route::get('/article', 'App\\Http\\Controllers\\ArticleController@index')
@@ -29,8 +32,12 @@ Route::get('/source', 'App\\Http\\Controllers\\SourceController@index')
 Route::get('/recommend', 'App\\Http\\Controllers\\RecommendController@index')
 ->name('recommends.index');
 
-Route::get('/gallery', 'App\\Http\\Controllers\\GalleryController@index')
-->name('gallery.index');
+//Route::get('/gallery', 'App\\Http\\Controllers\\GalleryController@index')
+//->name('gallery.index');
+Route::get('gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('about', [AboutController::class, 'index'])->name('about');
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
