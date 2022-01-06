@@ -25,10 +25,16 @@ class CustomAuthController extends Controller
         ]);
    
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials/*,['admin'=>0]*/)) {
             return redirect()->intended('dashboard')
                         ->withSuccess('Signed in');
-        }
+        }/*
+        elseif (Auth::attempt($credentials,['admin'=>1])) {
+            return redirect()->intended('administrator')
+                        ->withSuccess('Signed in');
+        }        
+        */
+
   
         return redirect("login")->withSuccess('Login details are not valid');
     }
@@ -47,6 +53,8 @@ class CustomAuthController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            /*'city' => 'required',
+            'country' => 'required',*/
         ]);
            
         $data = $request->all();
@@ -61,7 +69,12 @@ class CustomAuthController extends Controller
       return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
-        'password' => Hash::make($data['password'])
+        'password' => Hash::make($data['password']),
+        /*'city' => $data['city'],
+        'country' => $data['country'],
+        'admin' => $data['admin']
+        */
+
       ]);
     }    
     

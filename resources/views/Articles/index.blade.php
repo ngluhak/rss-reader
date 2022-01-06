@@ -26,10 +26,28 @@
                 </tr>
             </tbody>
         @endforeach
-
+        
 
     </tr>
 
 </table>
+
+<div class="card-deck">
+    @foreach ($articles as $article)
+    
+        <div class="card mb-3 w-25">
+            <img class="card-img-top" src="{{asset('assets/pot1.jpg')}}" alt="Card image">
+            <div class="card-body">
+                <h5 class="card-title"> {{ $article -> title }} </h5>
+                <p class="card-text"> {{ $article -> summary }} </p>
+                <p class="card-text"><small class="text-muted">{{ $article -> published }} published by {{ $article -> creator }}</small></p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+        </div>
+
+    @endforeach
+</div>
+
+
 
 @endsection

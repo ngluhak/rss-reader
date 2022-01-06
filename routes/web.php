@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/home', [HomeController::class, 'dashboard']
+Route::get('/', [HomeController::class, 'dashboard']
 )-> name('dashboard');
 
 Route::get('/article', 'App\\Http\\Controllers\\ArticleController@index')
@@ -31,12 +32,11 @@ Route::get('/source', 'App\\Http\\Controllers\\SourceController@index')
 ->name('sources.index');
 Route::get('/recommend', 'App\\Http\\Controllers\\RecommendController@index')
 ->name('recommends.index');
+Route::get('/contact', 'App\\Http\\Controllers\\CountryController@index')
+->name('contact.index');
 
-//Route::get('/gallery', 'App\\Http\\Controllers\\GalleryController@index')
-//->name('gallery.index');
-Route::get('gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/gallery', 'App\\Http\\Controllers\\GalleryController@index')->name('gallery');
 Route::get('about', [AboutController::class, 'index'])->name('about');
-Route::get('contact', [ContactController::class, 'index'])->name('contact');
 
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 

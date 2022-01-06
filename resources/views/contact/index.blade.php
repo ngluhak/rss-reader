@@ -28,11 +28,11 @@
             <div class="row">
                 <div class="input-group col-md-6">
                     <label class="col-md-12" for="country">Country</label>
-                    <select class="form-control" id="country">
-                      <option selected>Choose...</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-control" name="country">
+                        <option value="">Select a country</option>
+                        @foreach($countries as $country)
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -46,7 +46,6 @@
         </form>
     </div>
 </div>
-
 
 
 

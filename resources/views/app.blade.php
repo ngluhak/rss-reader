@@ -10,8 +10,19 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    
     <title>{{ env('APP_NAME', 'nema naziva') }}</title>
+
+    <style>      
+      .card:hover {
+        box-shadow: 8px 8px 8px rgb(116, 116, 133);
+        transform: scale(1.03);
+      }
+
+      .card {
+        transition: 0.5s;
+      }
+    </style>
   </head>
   <body>
 
@@ -40,7 +51,7 @@
                       <a class="nav-link text-dark" aria-current="page" href="{{ route('follows.index') }}">Follows</a>
                   </li>   
                   <li class="nav-item">
-                    <a class="nav-link text-dark" aria-current="page" href="{{ route('contact') }}">Contact</a>
+                    <a class="nav-link text-dark" aria-current="page" href="{{ route('contact.index') }}">Contact</a>
                   </li>  
                   <li class="nav-item">
                     <a class="nav-link text-dark" aria-current="page" href="{{ route('about') }}">About</a>
