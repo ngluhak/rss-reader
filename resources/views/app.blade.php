@@ -48,8 +48,11 @@
                       <a class="nav-link text-dark" aria-current="page" href="{{ route('articles.index') }}">Articles</a>
                   </li> 
                   <li class="nav-item">
-                      <a class="nav-link text-dark" aria-current="page" href="{{ route('follows.index') }}">Follows</a>
-                  </li>   
+                    <a class="nav-link text-dark" aria-current="page" href="{{ route('follows.index') }}">Top Recommenders</a>
+                 </li> 
+                 <li class="nav-item">
+                  <a class="nav-link text-dark" aria-current="page" href="{{ route('sources.index') }}">My Sources</a>
+               </li> 
                   <li class="nav-item">
                     <a class="nav-link text-dark" aria-current="page" href="{{ route('contact.index') }}">Contact</a>
                   </li>  
@@ -57,7 +60,7 @@
                     <a class="nav-link text-dark" aria-current="page" href="{{ route('about') }}">About</a>
                   </li> 
                   <li class="nav-item">
-                    <a class="nav-link text-dark" aria-current="page" href="{{ route('gallery') }}">Gallery</a>
+                    <s><a class="nav-link text-dark disabled" aria-current="page" href="{{ route('gallery') }}">Gallery</a></s>
                   </li>            
                 </ul>
                 
