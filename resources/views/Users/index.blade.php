@@ -2,8 +2,8 @@
 
 @section('content')
 
-<table>
-    <tr>
+<table class="table table-hover">
+    <tr class="table-dark">
         <th>id</th>
         <th>name</th>
         <th>email</th>

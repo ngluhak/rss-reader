@@ -14,7 +14,12 @@ class FollowController extends Controller
      */
     public function index()
     {
-        $follows = Follow::all();
+        //SELECT + JOIN
+        $follows = Follow::with(['user'])->get();
+        //pod relations se nalaze useri dd($follows);
+        //dd($follows[0]->user->name);
+
+        //view
         return view ('follows.index', compact('follows'));
     }
 

@@ -9,4 +9,9 @@ class Article extends Model
 {
     protected $table = 'articles';
     use HasFactory;
+
+    //inner join
+    public function recommends(){
+        return $this->hasMany(Recommends::class);
+    }
 }

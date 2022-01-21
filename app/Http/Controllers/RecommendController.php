@@ -14,7 +14,7 @@ class RecommendController extends Controller
      */
     public function index()
     {
-        $recommends = Recommend::all();
+        $recommends = Recommend::with(['user'])->get();
         return view ('recommends.index', compact('recommends'));
     }
 
@@ -89,8 +89,10 @@ class RecommendController extends Controller
      * @param  \App\Models\Recommend  $recommend
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recommend $recommend)
+    public function destroy(Recommend $delete)
     {
-        //
+        //dd($delete);
+        $delete->delete();
+        return redirect()->back()->with('success', 'deleted successfully');
     }
 }

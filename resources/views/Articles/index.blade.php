@@ -2,8 +2,8 @@
 
 @section('content')
 
-<table>
-    <tr>
+<table class="table table-hover">
+    <tr class="table-dark">
         <th>id</th>
         <th>source</th>
         <th>title</th>
@@ -11,6 +11,7 @@
         <th>content</th>
         <th>published</th>
         <th>summary</th>
+        <th>actions</th>
 
         @foreach ($articles as $article)
             <tbody>
@@ -22,6 +23,11 @@
                     <th>{{ $article -> content }}</th>
                     <th>{{ $article -> published }}</th>
                     <th>{{ $article -> summary }}</th>
+                    <th>
+                        <button onclick="javascript:alert('not implemented yet')" type="button" class="btn btn-outline-success">Add</button>
+                        <button   type="button" class="btn btn-outline-danger">Delete</button>
+                        <!--onclick ili href="{{ route('article.destroy', ['delete'=>$article->id]) }}"  -->
+                    </th>
 
                 </tr>
             </tbody>

@@ -2,8 +2,8 @@
 
 @section('content')
 
-<table>
-    <tr>
+<table class="table table-hover">
+    <tr class="table-dark">
         <th>id</th>
         <th>user_id</th>
         <th>rss_url</th>

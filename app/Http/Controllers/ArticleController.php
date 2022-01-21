@@ -80,8 +80,10 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy(Article $delete)
     {
-        //
+        //dd('pozvana funkcija za brisanje');
+        $delete->delete();
+        return redirect()->back();
     }
 }

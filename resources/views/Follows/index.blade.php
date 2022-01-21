@@ -2,14 +2,14 @@
 
 @section('content')
 
-<table>
-    <tr>
+<table class="table table-hover">
+    <tr class="table-dark">
         <th>user_id</th>
 
         @foreach ($follows as $follow)
             <tbody>
                 <tr >
-                    <th>{{ $follow -> user_id }}</th>
+                    <th>{{ $follow->user->name ?? '' }}</th>
 
                 </tr>
             </tbody>

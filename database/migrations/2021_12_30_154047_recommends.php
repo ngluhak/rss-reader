@@ -17,7 +17,7 @@ class Recommends extends Migration
             $table->id();
 
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('article_id')->constrained('articles');
+            $table->foreignId('article_id')->constrained('articles')->onDelete('cascade');
 
             //$table->primary(['user_id','article_id']);
             //iz nekog razloga mi javlja grešku da ne mogu ubaciti više primary key-eva

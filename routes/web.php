@@ -7,6 +7,8 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\RecommendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,7 @@ Route::get('/contact', 'App\\Http\\Controllers\\CountryController@index')
 Route::get('/gallery', 'App\\Http\\Controllers\\GalleryController@index')->name('gallery');
 Route::get('about', [AboutController::class, 'index'])->name('about');
 
-
+//registracija/login
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
@@ -49,3 +51,10 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 //rss feed
 Route::get('feed', 'ArticleController@feed');
 
+//editing
+
+Route::get('/article/delete/{delete}', [ArticleController::class, 'destroy'])
+->name('article.destroy');
+
+Route::get('/recommend/delete/{delete}', [RecommendController::class, 'destroy'])
+->name('recommend.destroy');

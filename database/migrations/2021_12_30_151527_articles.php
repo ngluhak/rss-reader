@@ -16,7 +16,7 @@ class Articles extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('source');
-            $table->string('title')->unique();
+            $table->string('title');
             $table->string('creator');
             $table->string('content');
             $table->string('published')->nullable();
