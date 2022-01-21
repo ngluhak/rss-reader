@@ -24,19 +24,33 @@ use App\Http\Controllers\RecommendController;
 Route::get('/', [HomeController::class, 'dashboard']
 )-> name('dashboard');
 
+//article
 Route::get('/article', 'App\\Http\\Controllers\\ArticleController@index')
 ->name('articles.index');
+Route::get('/article/delete/{delete}', [ArticleController::class, 'destroy'])
+->name('article.destroy');
+
+//follows
 Route::get('/follow', 'App\\Http\\Controllers\\FollowController@index')
 ->name('follows.index');
+
+//all users
 Route::get('/user', 'App\\Http\\Controllers\\UserController@index')
 ->name('users.index');
+
+//source
 Route::get('/source', 'App\\Http\\Controllers\\SourceController@index')
 ->name('sources.index');
+
+//recommend
 Route::get('/recommend', 'App\\Http\\Controllers\\RecommendController@index')
 ->name('recommends.index');
+Route::get('/recommend/delete/{delete}', [RecommendController::class, 'destroy'])
+->name('recommend.destroy');
+
+//additional
 Route::get('/contact', 'App\\Http\\Controllers\\CountryController@index')
 ->name('contact.index');
-
 Route::get('/gallery', 'App\\Http\\Controllers\\GalleryController@index')->name('gallery');
 Route::get('about', [AboutController::class, 'index'])->name('about');
 
@@ -51,10 +65,4 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 //rss feed
 Route::get('feed', 'ArticleController@feed');
 
-//editing
 
-Route::get('/article/delete/{delete}', [ArticleController::class, 'destroy'])
-->name('article.destroy');
-
-Route::get('/recommend/delete/{delete}', [RecommendController::class, 'destroy'])
-->name('recommend.destroy');
