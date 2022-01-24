@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RecommendController;
+use App\Http\Controllers\SourceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,8 @@ Route::get('/user', 'App\\Http\\Controllers\\UserController@index')
 //source
 Route::get('/source', 'App\\Http\\Controllers\\SourceController@index')
 ->name('sources.index');
+Route::post('create', [SourceController::class, 'create'])->name('sources.create'); 
+
 
 //recommend
 Route::get('/recommend', 'App\\Http\\Controllers\\RecommendController@index')

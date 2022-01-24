@@ -30,4 +30,12 @@
 
 </table>
 
+<form action = "/create" method = "post" class="input-group">
+    <input type="text" class="form-control" placeholder="insert your link" id="inputGroupSelect04">
+    <div class="input-group-append">
+      <!-- <button class="btn btn-dark" type="button">Add</button> -->
+      <input type = 'submit' value = "Add"/>
+    </div>
+</form>
+
 @endsection
