@@ -23,9 +23,22 @@ class SourceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $rules = ['link'=> 'required'];
+        $validator = Validator::make($request->all(),$rules);
+        if ($validator->fails()){
+            return redirect('index')->withInput()->withErrors($validator);
+        } else{
+            $data = $request->input();
+            try{
+                $source=new Source;
+                $source->link=$data['link'];
+                return redirect('index')->with('status',"Insert successfully");
+            }catch(Exception $e){
+				return redirect('index')->with('failed',"operation failed");
+			}
+        }
     }
 
     /**

@@ -58,25 +58,13 @@ class CustomAuthController extends Controller
         ]);
            
         $data = $request->all();
-        $check = $this->create($data);
+        $user= new User();
+        $check = $user->create($data);
          
         return redirect("dashboard")->withSuccess('You have signed-in');
     }
 
-
-    public function create(array $data)
-    {
-      return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password']),
-        /*'city' => $data['city'],
-        'country' => $data['country'],
-        'admin' => $data['admin']
-        */
-
-      ]);
-    }    
+   
     
 
     public function dashboard()
