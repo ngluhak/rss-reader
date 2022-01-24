@@ -53,4 +53,19 @@ class User extends Authenticatable
         return $this->hasMany(Recommends::class);
     }
 
+    
+    public function create(array $data)
+    {
+      return $this->create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        /*'city' => $data['city'],
+        'country' => $data['country'],
+        'admin' => $data['admin']
+        */
+
+      ]);
+    }    
+
 }
