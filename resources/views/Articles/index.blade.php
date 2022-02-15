@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <table class="table table-hover">
     <tr class="table-dark">
         <th>id</th>
@@ -24,14 +25,19 @@
                     <th>{{ $article -> published }}</th>
                     <th>{{ $article -> summary }}</th>
                     <th>
-                        <button onclick="javascript:alert('not implemented yet')" type="button" class="btn btn-outline-success">Add</button>
-                        <button   type="button" class="btn btn-outline-danger">Delete</button>
-                        <!--onclick ili href="{{ route('article.destroy', ['delete'=>$article->id]) }}"  -->
+                        <a class="btn btn-danger" onclick="return myFunction();" href="{{ route('article.destroy', ['article' => $article->id]) }}">Delete</a>
                     </th>
 
                 </tr>
             </tbody>
         @endforeach
+
+        <script>
+            function myFunction() {
+                if(!confirm("Are You Sure to delete this"))
+                event.preventDefault();
+            }
+           </script>
         
 
     </tr>

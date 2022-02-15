@@ -26,10 +26,20 @@ Route::get('/', [HomeController::class, 'dashboard']
 )-> name('dashboard');
 
 //article
-Route::get('/article', 'App\\Http\\Controllers\\ArticleController@index')
+
+Route::get('/article', [ArticleController::class, 'index'])
 ->name('articles.index');
-Route::get('/article/delete/{delete}', [ArticleController::class, 'destroy'])
+Route::get('/article/delete/{article}', [ArticleController::class, 'destroy'])
 ->name('article.destroy');
+
+Route::get('/article/edit/{article}',[ArticleController::class, 'edit'])
+->name('article.edit');
+Route::put('/article/update/{article}',[ArticleController::class, 'update'])
+->name('article.update');
+
+//Route::resource('/article', ArticleController::class);
+
+
 
 //follows
 Route::get('/follow', 'App\\Http\\Controllers\\FollowController@index')
@@ -66,6 +76,6 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 //rss feed
-Route::get('feed', 'ArticleController@feed');
+//Route::get('feed', 'ArticleController@feed');
 
 

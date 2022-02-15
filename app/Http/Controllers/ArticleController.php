@@ -26,7 +26,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $article = new Article();
+        return view('articles.create', compact('article'));
     }
 
     /**
@@ -37,7 +38,9 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->data();
+        $article = Article::create($data);
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -48,7 +51,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('articles.show', compact('article'));
     }
 
     /**
@@ -59,7 +62,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        // 1. napravi view tj. formu za uredivanje
+
+        return view('articles.edit', ['article' => $article]);
     }
 
     /**
@@ -72,6 +77,20 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         //
+        //$data = $request->only(['title']);
+
+        $data = $request->validate([
+            'source'=>'required|string',
+            'title'=>'required|string',
+            'creator'=>'required|string',
+            'content'=>'required|string',
+            'published'=>'required|string',
+            'summary'=>'required|string',
+        ]);
+
+        $article->update($data);
+
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -80,10 +99,10 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $delete)
+    public function destroy(Article $article)
     {
         //dd('pozvana funkcija za brisanje');
-        $delete->delete();
+        $article->delete();
         return redirect()->back();
     }
 }
