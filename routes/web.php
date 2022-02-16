@@ -37,6 +37,15 @@ Route::get('/article/edit/{article}',[ArticleController::class, 'edit'])
 Route::put('/article/update/{article}',[ArticleController::class, 'update'])
 ->name('article.update');
 
+
+Route::get('/article/show/{article}',[ArticleController::class, 'show'])
+->name('article.show');
+
+Route::get('/article/create',[ArticleController::class, 'create'])
+->name('article.create');
+Route::put('/article/store',[ArticleController::class, 'store'])
+->name('article.store');
+
 //Route::resource('/article', ArticleController::class);
 
 

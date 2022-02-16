@@ -36,11 +36,20 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        $data = $request->data();
+        $data = $request->validate([
+            'source'=>'required|string',
+            'title'=>'required|string',
+            'creator'=>'required|string',
+            'content'=>'required|string',
+            'published'=>'required|string',
+            'summary'=>'required|string',
+        ]);
         $article = Article::create($data);
         return redirect()->route('articles.index');
+
     }
 
     /**

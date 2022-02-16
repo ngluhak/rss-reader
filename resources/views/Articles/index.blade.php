@@ -2,7 +2,10 @@
 
 @section('content')
 
-
+<div class=" mb-3 w-25">
+    <a class="btn btn-outline-dark" href="{{ route('article.create') }}">Create a new element</a>
+                    
+</div>
 <table class="table table-hover">
     <tr class="table-dark">
         <th>id</th>
@@ -25,7 +28,9 @@
                     <th>{{ $article -> published }}</th>
                     <th>{{ $article -> summary }}</th>
                     <th>
-                        <a class="btn btn-danger" onclick="return myFunction();" href="{{ route('article.destroy', ['article' => $article->id]) }}">Delete</a>
+                        <a class="btn btn-outline-success" href="{{ route('article.edit', ['article' => $article->id]) }}">Edit</a>
+
+                        <a class="btn btn-outline-danger" onclick="return myFunction();" href="{{ route('article.destroy', ['article' => $article->id]) }}">Delete</a>
                     </th>
 
                 </tr>
