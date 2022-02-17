@@ -17,7 +17,8 @@
                     <th>{{ $recommend -> article_id }}</th>
                     <th>
                         <button type="button" class="btn btn-outline-success">Add</button>
-                        <button href="{{ route('recommend.destroy', ['delete'=>$recommend->id]) }}" type="button" class="btn btn-outline-danger">Delete</button>
+                        <a class="btn btn-outline-danger" href="{{ route('recommend.destroy', ['recommend' => $recommend->id]) }}">Delete</a>
+
 
                     </th>
 

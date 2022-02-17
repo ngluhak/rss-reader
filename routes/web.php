@@ -67,7 +67,7 @@ Route::post('create', [SourceController::class, 'create'])->name('sources.create
 //recommend
 Route::get('/recommend', 'App\\Http\\Controllers\\RecommendController@index')
 ->name('recommends.index');
-Route::get('/recommend/delete/{delete}', [RecommendController::class, 'destroy'])
+Route::get('/recommend/delete/{recommend}', [RecommendController::class, 'destroy'])
 ->name('recommend.destroy');
 
 //additional

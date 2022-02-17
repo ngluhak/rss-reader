@@ -89,10 +89,10 @@ class RecommendController extends Controller
      * @param  \App\Models\Recommend  $recommend
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recommend $delete)
+    public function destroy(Recommend $recommend)
     {
         //dd($delete);
-        $delete->delete();
+        $recommend->delete();
         return redirect()->back()->with('success', 'deleted successfully');
     }
 }
