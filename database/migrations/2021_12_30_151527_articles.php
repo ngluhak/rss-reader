@@ -22,6 +22,8 @@ class Articles extends Migration
             $table->string('published')->nullable();
             $table->string('summary');
 
+            //$table->foreignId('user_id')->constrained('users');
+
             
             $table->timestamps();
         });
