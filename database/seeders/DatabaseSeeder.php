@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Article;
+use Hash;
 
 
 
@@ -21,11 +22,13 @@ class DatabaseSeeder extends Seeder
         User::factory()
             ->count(env('SEED_USER',10))->create();
 
+        $sifra='sifra';
         $users = [
             ['name'=> 'pperic', 'email'=>'pperic@gmail.com', 'password'=>'perojenajbolji'/*,'city'=>'zagreb','country'=>'hrvatska','admin'=>1*/],
-            ['name'=> 'mmarkovic', 'email'=>'mmarkovic@gmail.com', 'password'=>'nevolimperu'/*,'city'=>'split','country'=>'hrvatska','admin'=>0*/],
+            ['name'=> 'mmarkovic', 'email'=>'mmarkovic@gmail.com', 'password'=>Hash::make($sifra)/*,'city'=>'split','country'=>'hrvatska','admin'=>0*/],
             ['name'=> 'jjuric', 'email'=>'jjuric@gmail.com', 'password'=>'juricakralj'/*,'city'=>'Beč','country'=>'austrija','admin'=>0*/]
         ];
+
 
        DB::table('users')->insert($users);
     
@@ -62,7 +65,7 @@ class DatabaseSeeder extends Seeder
         $follows = [
             ['user_id'=> 1],
             ['user_id'=> 2],
-            ['user_id'=> 3],
+            ['user_id'=> 12],
         ];
 
         DB::table('follows')->insert($follows);
@@ -70,7 +73,7 @@ class DatabaseSeeder extends Seeder
         $recommends = [
             ['user_id'=> 1, 'article_id'=> 1],
             ['user_id'=> 2, 'article_id'=> 1],
-            ['user_id'=> 1, 'article_id'=> 2],
+            ['user_id'=> 12, 'article_id'=> 2],
         ];
 
         DB::table('recommends')->insert($recommends);
