@@ -19,21 +19,16 @@ class CustomAuthController extends Controller
 
     public function customLogin(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
-   
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials/*,['admin'=>0]*/)) {
-            return redirect()->intended('dashboard')
-                        ->withSuccess('Signed in');
-        }/*
-        elseif (Auth::attempt($credentials,['admin'=>1])) {
-            return redirect()->intended('administrator')
-                        ->withSuccess('Signed in');
-        }        
-        */
+
+        if (Auth::attempt($credentials)) {
+            return redirect('dashboard');
+        }
+        
+        //dd(Auth::attempt($credentials/*,['admin'=>0]*/));
 
   
         return redirect("login")->withSuccess('Login details are not valid');
@@ -49,23 +44,18 @@ class CustomAuthController extends Controller
 
     public function customRegistration(Request $request)
     {  
-        $request->validate([
+        $input = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6'
             /*'city' => 'required',
             'country' => 'required',*/
         ]);
-           
-        $data = $request->all();
-        $user= new User();
-        $check = $user->create($data);
-         
+        
+        $user = User::create($input);
         return redirect("dashboard")->withSuccess('You have signed-in');
-    }
+    } 
 
-   
-    
 
     public function dashboard()
     {

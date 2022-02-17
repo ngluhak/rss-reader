@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
+use Hash;
 
 
 class User extends Authenticatable
@@ -53,19 +54,9 @@ class User extends Authenticatable
         return $this->hasMany(Recommends::class);
     }
 
+    public function setPasswordAttribute($password) {
+        $this->attributes['password'] = Hash::make($password);
+    }
+
     
-    public function create(array $data)
-    {
-      return $this->create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password']),
-        /*'city' => $data['city'],
-        'country' => $data['country'],
-        'admin' => $data['admin']
-        */
-
-      ]);
-    }    
-
 }
