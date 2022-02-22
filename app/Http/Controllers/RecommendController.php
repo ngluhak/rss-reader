@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Recommend;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class RecommendController extends Controller
 {
@@ -78,7 +80,7 @@ class RecommendController extends Controller
      * @param  \App\Models\Recommend  $recommend
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recommend $recommend)
+    public function update(UpdateRecommendRequest $request, Recommend $recommend)
     {
         //
     }
@@ -91,8 +93,32 @@ class RecommendController extends Controller
      */
     public function destroy(Recommend $recommend)
     {
-        //dd($delete);
+        // Gate::authorize('delete-recommend', $recommend);
+        /*    
+        if (! Gate::allows('delete-recommend', $recommend)) {
+            abort(403);
+        }
+
+        */
+
+
+
+        /*
+
+        OVO SE VRATI NAZAD UKOLIKO SE ŽELI KORISTITI POLICY, koji ne radi lol
+
+        $user = Auth::user();
+        dd($user);
+        if ($user->can('delete-recommend', $recommend)) {
+            dd($recommend);
+          } else {
+            abort(403);
+          }
+
+        */
+
         $recommend->delete();
         return redirect()->back()->with('success', 'deleted successfully');
     }
+
 }
